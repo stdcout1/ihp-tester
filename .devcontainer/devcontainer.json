@@ -1,0 +1,36 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "containerEnv": {
+    "PROJECT_DIR": "${containerWorkspaceFolder}"
+  },
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/stdcout1/ihp-feature/ihp:latest": {}
+  },
+  "onCreateCommand": [
+      "nix profile add nixpkgs#direnv",
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "nix-bash": {
+            "path": "/bin/bash",
+            "args": [
+              "-lc",
+              "nix develop"
+            ]
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "nix-bash"
+      },
+      "extensions": [
+        "bbenoist.nix",
+        "haskell.haskell",
+        "s0kil.vscode-hsx",
+        "mkhl.direnv",
+        "vigoo.stylish-haskell"
+      ]
+    }
+  }
+}
