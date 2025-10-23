@@ -10,6 +10,9 @@
   "onCreateCommand": [
       "nix profile add nixpkgs#direnv",
   ],
+  "runArgs": [
+    "--network=host",
+  ],
   "customizations": {
     "vscode": {
       "settings": {
