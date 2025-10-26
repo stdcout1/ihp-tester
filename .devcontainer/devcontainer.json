@@ -8,24 +8,18 @@
     "ghcr.io/stdcout1/ihp-feature/ihp:latest": {}
   },
   "onCreateCommand": [
-      "nix profile add nixpkgs#direnv",
-  ],
-  "runArgs": [
-    "--network=host",
+    "Setup direnv": "sudo apt install direnv; echo 'eval \"$(direnv hook bash)\"' >> ~/.bashrc",
+    "Fix nix Permissions": "sudo apt install acl; sudo setfacl -k /tmp",
   ],
   "customizations": {
     "vscode": {
       "settings": {
-        "terminal.integrated.profiles.linux": {
-          "nix-bash": {
-            "path": "/bin/bash",
-            "args": [
-              "-lc",
-              "nix develop"
-            ]
-          }
-        },
-        "terminal.integrated.defaultProfile.linux": "nix-bash"
+          "terminal.integrated.profiles.linux": {
+              "bash": {
+                  "path": "/bin/bash"
+              }
+          },
+          "terminal.integrated.defaultProfile.linux": "bash"
       },
       "extensions": [
         "bbenoist.nix",
