@@ -5,8 +5,7 @@
       "ghcr.io/devcontainers/features/nix:1": {
         "multiUser": true,
         "packages": ["cachix"],
-        "flakeUri": "github:digitallyinduced/ihp-boilerplate#devShells.x86_64-linux.default",
-        "extraNixConfig": "experimental-features = nix-command flakes impure-derivations, trusted-users = root vscode, accept-flake-config = true, allow-import-from-derivation = true"
+        "extraNixConfig": "experimental-features = nix-command flakes, trusted-users = root vscode"
       }
   },
 
